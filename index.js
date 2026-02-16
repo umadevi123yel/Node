@@ -16,9 +16,9 @@ mongoose
 
 // Routes
 app.use("/api/users", require("./routes/userRoutes"));
-// app.get("/", (req, res) => {
-//   res.send("Hello from Express!");
-// });
+app.get("/", (req, res) => {
+  res.send("Hello from Express!");
+});
 
 app.listen(process.env.port, () => {
   console.log(`Server running on port ${process.env.port}`);
