@@ -6,11 +6,11 @@ require("dotenv").config();
 const app = express();
 app.use(express.json());
 app.use(cors());
-const dbConnection = "mongodb://127.0.0.1:27017/mydatabase";
-const port = 5000;
+// const dbConnection = "mongodb://127.0.0.1:27017/mydatabase";
+// const port = 5000;
 // Connect to MongoDB
 mongoose
-  .connect(dbConnection)
+  .connect(process.env.MONGO_URI)
   .then(() => console.log("MongoDB Connected nn"))
   .catch((err) => console.log(err));
 
@@ -20,6 +20,6 @@ app.use("/api/users", require("./routes/userRoutes"));
 //   res.send("Hello from Express!");
 // });
 
-app.listen(port, () => {
-  console.log(`Server running on port ${port}`);
+app.listen(process.env.port, () => {
+  console.log(`Server running on port ${process.env.port}`);
 });
