@@ -17,7 +17,7 @@ mongoose
 // Routes
 app.use("/api/users", require("./routes/userRoutes"));
 app.get("/", (req, res) => {
-  res.send("Hello from Express!");
+  res.send("Hello from Express! azure");
 });
 
 app.listen(process.env.port, () => {
