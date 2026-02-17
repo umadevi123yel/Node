@@ -20,6 +20,6 @@ app.get("/", (req, res) => {
   res.send("Hello from Express! azure");
 });
 
-app.listen(process.env.port, () => {
+app.listen(process.env.port || 5000, () => {
   console.log(`Server running on port ${process.env.port}`);
 });
