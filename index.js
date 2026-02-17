@@ -1,7 +1,9 @@
 const express = require("express");
 const cors = require("cors");
 const mongoose = require("mongoose");
-require("dotenv").config();
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config();
+}
 
 const app = express();
 app.use(express.json());
@@ -20,6 +22,6 @@ app.get("/", (req, res) => {
   res.send("Hello from Express! azure");
 });
 
-app.listen(process.env.port || 5000, () => {
+app.listen(process.env.port || 8080, () => {
   console.log(`Server running on port ${process.env.port}`);
 });
